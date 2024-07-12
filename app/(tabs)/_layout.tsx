@@ -6,6 +6,7 @@ const Layout = () => {
   return (
     <Tabs>
       <Tabs.Screen name="chats" />
+      <Tabs.Screen name="communities" />
     </Tabs>
   );
 };

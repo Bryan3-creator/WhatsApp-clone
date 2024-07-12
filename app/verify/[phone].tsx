@@ -64,7 +64,6 @@ const Page = () => {
         strategy: "phone_code",
         code,
       });
-
       if (signInAttempt?.status !== "complete") return;
       await setActive!({
         session: signInAttempt.createdSessionId,
@@ -96,7 +95,7 @@ const Page = () => {
           phoneNumber: phone,
         });
 
-        await signUpAttempt.preparePhoneNumberVerification();
+        await signUpAttempt?.preparePhoneNumberVerification();
       }
     } catch (error) {
       if (isClerkAPIResponseError(error)) {
