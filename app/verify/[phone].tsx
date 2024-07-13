@@ -31,7 +31,6 @@ const Page = () => {
   const router = useRouter();
   const { signUp, setActive } = useSignUp();
   const { signIn: signInAuth } = useSignIn();
-  console.log({ signIn });
   useEffect(() => {
     if (code.length === 6) {
       if (signIn === "true") {
@@ -123,6 +122,7 @@ const Page = () => {
         onChangeText={setCode}
         cellCount={CELL_COUNT}
         rootStyle={styles.codeFieldRoot}
+        autoFocus
         renderCell={({ index, symbol, isFocused }) => {
           return (
             <View

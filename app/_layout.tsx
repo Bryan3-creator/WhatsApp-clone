@@ -53,11 +53,11 @@ const InitialLayout = () => {
 
   useEffect(() => {
     if (!isLoaded) return;
-    /*   if (isSignedIn) {
-      router.replace("/(tabs)/chats");
+    if (isSignedIn) {
+      router.replace("/(tabs)/settings");
     } else if (!isSignedIn) {
-      router.replace("/"); 
-    } */
+      router.replace("/");
+    }
   }, [isSignedIn]);
 
   if (!loaded) {
@@ -65,7 +65,7 @@ const InitialLayout = () => {
   }
 
   return (
-    <Stack initialRouteName="verify/[phone]">
+    <Stack>
       <Stack.Screen
         name="otp"
         options={{
@@ -82,7 +82,7 @@ const InitialLayout = () => {
           headerBackTitle: "Edit number",
         }}
       />
-      <Stack.Screen name="(tabs)" />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
     </Stack>
   );
 };
