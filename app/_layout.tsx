@@ -1,7 +1,7 @@
 import { useFonts } from "expo-font";
 import { Slot, Stack, useRouter, useSegments } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import "react-native-reanimated";
 import { LogBox } from "react-native";
 import { ClerkLoaded, ClerkProvider, useAuth } from "@clerk/clerk-expo";
@@ -46,26 +46,26 @@ const InitialLayout = () => {
   const segments = useSegments();
 
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  useEffect(() => {
     if (!isLoaded) return;
     if (isSignedIn) {
-      router.replace("/(tabs)/settings");
+      router.replace("/(tabs)/calls");
     } else if (!isSignedIn) {
       router.replace("/");
     }
   }, [isSignedIn]);
+
+  useEffect(() => {
+    if (loaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded]);
 
   if (!loaded) {
     return null;
   }
 
   return (
-    <Stack>
+    <Stack initialRouteName="data">
       <Stack.Screen
         name="otp"
         options={{

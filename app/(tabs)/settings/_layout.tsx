@@ -10,6 +10,7 @@ const Layout = () => {
           headerLargeTitle: true,
           headerShadowVisible: false,
           headerStyle: { backgroundColor: Colors.background },
+
           headerSearchBarOptions: {
             placeholder: "Search",
           },
